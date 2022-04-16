@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import tableStyles from '../common/styles/table.module.css'
 
-// 이름 달라도 상관 없음
+// 이름 달라도 상관 없음.
 export default function Calculator() {
     const [result, setResult] = useState('');
     const [inputs, setInputs] = useState({opcode: "+"});
