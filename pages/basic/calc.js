@@ -1,14 +1,12 @@
-import React, { useState } from "react";
 import tableStyles from '../common/styles/table.module.css'
+import React, {useState} from "react";
 
-// 이름 달라도 상관 없음.
-export default function Calculator() {
-    const [result, setResult] = useState('');
-    const [inputs, setInputs] = useState({opcode: "+"});
+export default function Calculator(){
+    const [result, setResult] = useState('')
+    const [inputs, setInputs] = useState({opcode: "+"})
     const { num1, num2, opcode} = inputs
-
     const onChange = e => {
-        e.preventDefault();
+        e.preventDefault()
         const { name, value } = e.target
         setInputs({
             ...inputs,
@@ -32,7 +30,6 @@ export default function Calculator() {
                 console.log("Default")
         }
     }
-
     return (<form >
         <table className={tableStyles.table}>
             <thead>

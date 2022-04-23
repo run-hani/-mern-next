@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import tableStyles from './common/styles/table.module.css'
 import axios from "axios";
 export default function Home() {
-  //시작하자마자 실행하는 영역
   useEffect(() => {
     axios.get("http://localhost:5000/api/now").then((res) => {
       var data = res.data;
@@ -19,7 +18,7 @@ export default function Home() {
     <tbody>
         <tr >
         <td>
-            <div id="timeZone"></div></td>
+            <div id="timeZone">현재시간</div></td>
         </tr>
     </tbody>
   </table>
