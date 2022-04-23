@@ -67,6 +67,19 @@ const userSlice = createSlice({
         logoutFailure(state: UserState, {payload}){ 
             state.data = payload;
             state.loading = false;
+        },
+        delUserRequest(state: UserState, payload){
+            // alert('진행 2: 회원탈퇴 리듀서 내부 ') 
+            state.loading = true; 
+        },
+        delUserSuccess(state: UserState, {payload}){ 
+            state.loading = false;
+            localStorage.clear()
+            window.location.href ='/'  
+        },
+        delUserFailure(state: UserState, {payload}){ 
+            state.data = payload;
+            state.loading = false;
         }
     }
 })
