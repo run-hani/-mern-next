@@ -65,7 +65,9 @@ export default function  Join(){
                     <td><input type="text" name='address' onChange={handleChange}/></td>
                 </tr>
                 <tr>
-                    <td colSpan={2}><button type="submit">회원가입</button><br /></td>
+                    <td colSpan={2}><button type="submit" onClick={e => {
+                        window.location.href='./login'
+                    }}>회원가입</button><br /></td>
                 </tr>
             </tbody>
         </table>

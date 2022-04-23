@@ -35,6 +35,7 @@ function* join(user: UserJoinType){
 }
 // userActions.joinRequest가 꽃히면 join을 만듬
 export function* watchJoin(){
+    alert('진행 2.5')
     yield takeLatest(userActions.joinRequest, join)
 }
 
