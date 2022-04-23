@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { PayloadAction } from '@reduxjs/toolkit'
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import { userActions } from '../reducers/userReducer.ts';
@@ -42,7 +43,7 @@ function* join(user: UserJoinType){
 }
 // joinApi.joinRequest가 꽃히면 join을 만듬
 export function* watchJoin(){
-    alert('진행 2.5')
+    // alert('진행 2.5')
     yield takeLatest(userActions.joinRequest, join)
 }
 
@@ -50,7 +51,7 @@ function* login(login: UserLoginType){
     try{
         const response : UserLoginSuccessType = yield loginApi(login.payload)
         yield put(userActions.loginSuccess(response))
-        window.location.href='/'
+        Router.push('/')
     }catch(error){
          yield put(userActions.loginFailure(error))
     }
