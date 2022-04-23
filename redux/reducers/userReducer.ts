@@ -54,6 +54,19 @@ const userSlice = createSlice({
         loginFailure(state: UserState, {payload}){ 
             state.data = payload;
             state.loading = false;
+        },
+        logoutRequest(state: UserState, payload){
+            // alert('진행 2: 로그아웃 리듀서 내부 ') 
+            state.loading = true; 
+        },
+        logoutSuccess(state: UserState, {payload}){ 
+            state.loading = false;
+            localStorage.clear()
+            window.location.href ='/'  
+        },
+        logoutFailure(state: UserState, {payload}){ 
+            state.data = payload;
+            state.loading = false;
         }
     }
 })

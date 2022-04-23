@@ -1,8 +1,7 @@
-import Router from "next/router";
 import { PayloadAction } from '@reduxjs/toolkit'
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import { userActions } from '../reducers/userReducer.ts';
-import { joinApi, loginApi } from '../api/userApi.ts'
+import { joinApi, loginApi, logoutApi } from '../api/userApi.ts'
 
 interface UserJoinType{
     type: string;
@@ -51,11 +50,23 @@ function* login(login: UserLoginType){
     try{
         const response : UserLoginSuccessType = yield loginApi(login.payload)
         yield put(userActions.loginSuccess(response))
-        Router.push('/')
+        window.location.href ='/'
     }catch(error){
          yield put(userActions.loginFailure(error))
     }
 }
 export function* watchLogin(){
     yield takeLatest(userActions.loginRequest, login)
-} 
+}
+
+function* logout(){
+    try{
+        const response : UserLoginSuccessType = yield logoutApi()
+        yield put(userActions.logoutSuccess(response))
+    }catch(error){
+         console.log(error)
+    }
+}
+export function* watchLogout(){
+    yield takeLatest(userActions.logoutRequest, logout)
+}

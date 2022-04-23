@@ -57,3 +57,15 @@ export const loginApi = async (payload : {
         return err;
     }
 }
+
+export const logoutApi = async () => {
+    try {
+        const response: AxiosResponse<unknown, UserType[]> = await axios.get(
+            `${SERVER}/user/logout`,
+            {headers}
+        )
+       
+    } catch (err) {
+        return err;
+    }
+}
