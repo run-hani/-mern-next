@@ -14,6 +14,7 @@ export interface UserType{
     birth: string;
     address: string;
 }
+// async는 넣어야함(서버도 마찬가지)
 export const postUser = async (payload: 
     {userid:string, password:string, email:string, 
      name:string, phone:string, birth:string, address:string}) => {

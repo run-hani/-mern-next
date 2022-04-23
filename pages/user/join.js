@@ -1,11 +1,14 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
+// reducer = 액션을 가진 함수
+import {userActions } from "../../redux/reducers/userReducer.ts"
 import tableStyles from '../common/styles/table.module.css'
 
 export default function  Join(){
     const [user, setUser] =useState({
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
     })
+    const dispatch = useDispatch();
     const handleChange = e =>{
         e.preventDefault()
         const{name, value} = e.target;

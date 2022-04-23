@@ -10,6 +10,12 @@ interface UserJoinType{
         name:string, phone:string, birth:string, address:string
     }
 }
+interface UserLoginType{
+    type: string;
+    payload: {
+        userid:string, password:string
+    }
+}
 interface UserJoinSuccessType{
     type: string;
     payload: {
@@ -27,6 +33,22 @@ function* join(user: UserJoinType){
          yield put(userActions.joinFailure(error))
     }
 }
+// userActions.joinRequest가 꽃히면 join을 만듬
 export function* watchJoin(){
     yield takeLatest(userActions.joinRequest, join)
 }
+
+// function* login(user: UserJoinType){
+//     try{
+//         alert(' 진행 3: saga내부 join 성공  '+ JSON.stringify(user))
+//         const response : UserJoinSuccessType = yield postUser(user.payload)
+//         yield put(userActions.joinSuccess(response))
+//     }catch(error){
+//          alert('진행 3: saga내부 join 실패  ') 
+//          yield put(loginActions.joinFailure(error))
+//     }
+// }
+
+// export function* watchLogin(){
+//     yield takeLatest(loginActions.loginRequest, join)
+// }
